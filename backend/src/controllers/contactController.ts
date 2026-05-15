@@ -21,10 +21,23 @@ export async function submitContact(req: Request, res: Response, next: NextFunct
 
     // Fire emails — don't let failures block the response
     const payload = { name, email, message, company, phone }
+    
+    console.log("=== EMAIL DEBUG INFO ===")
+    console.log("SMTP_HOST:", process.env['SMTP_HOST'])
+    console.log("SMTP_PORT:", process.env['SMTP_PORT'])
+    console.log("SMTP_USER:", process.env['SMTP_USER'])
+    console.log("Has SMTP_PASS:", !!process.env['SMTP_PASS'])
+    console.log("========================")
+
     Promise.all([
       sendUserConfirmation(payload),
       sendTeamNotification(payload),
-    ]).catch((err) => console.error('Email send error:', err))
+    ])
+      .then((info) => console.log('Emails sent successfully!', info))
+      .catch((err) => {
+        console.error('Detailed Email send error:', err)
+        if (err.response) console.error('SMTP Response:', err.response)
+      })
 
     res.status(201).json({
       success: true,
