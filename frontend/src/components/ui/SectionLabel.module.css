@@ -1,0 +1,30 @@
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  /* light section → maroon label */
+  color: var(--accent);
+  margin-bottom: var(--sp-5);
+}
+
+.line {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--gradient-maroon);
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+/* dark section → sky blue label */
+.onDark {
+  color: var(--accent-2-light);
+}
+
+.onDark .line {
+  background: var(--accent-2-light);
+}

@@ -1,0 +1,119 @@
+:root {
+  /* ─── COLOR SYSTEM ────────────────────────────────────────────
+   * Palette: Maroon #6D1020 · Navy #2F4156 · Teal #567C8D
+   *          Sky Blue #C8D9E6 · Beige #F5EFEB · White #FFFFFF
+   * ─────────────────────────────────────────────────────────── */
+
+  /* Raw palette tokens */
+  --maroon:    #6D1020;
+  --navy:      #2F4156;
+  --teal:      #567C8D;
+  --sky:       #C8D9E6;
+  --beige:     #F5EFEB;
+
+  /* Backgrounds */
+  --bg-primary:    #F5EFEB;    /* Beige     — main warm page bg */
+  --bg-secondary:  #FFFFFF;    /* White     — cards, elevated surfaces */
+  --bg-dark:       #2F4156;    /* Navy      — contrast sections (WhyUs, Footer) */
+  --bg-dark-alt:   #1E2D3C;    /* Deep navy — card surfaces inside dark sections */
+  --bg-subtle:     #C8D9E6;    /* Sky Blue  — Contact section bg */
+
+  /* Text */
+  --text-primary:        #2F4156;  /* Navy      — headings, body on light */
+  --text-secondary:      #567C8D;  /* Teal      — subtitles, secondary */
+  --text-muted:          #8AAABB;  /* Muted teal — captions, labels */
+  --text-on-dark:        #F5EFEB;  /* Beige     — text on navy sections */
+  --text-muted-on-dark:  #C8D9E6;  /* Sky Blue  — muted text on navy */
+
+  /* ── Primary accent: Maroon — punchy, energetic, drives action ── */
+  --accent:        #6D1020;
+  --accent-hover:  #580D1A;
+  --accent-light:  #F5D5D9;    /* very light rose — badges, tints */
+  --accent-subtle: #FDF2F3;    /* barely-there tint — focus rings */
+
+  /* ── Secondary accent: Teal — calm, trust, secondary labels ── */
+  --accent-2:        #567C8D;
+  --accent-2-hover:  #2F4156;
+  --accent-2-light:  #C8D9E6;  /* Sky Blue */
+  --accent-2-subtle: #E5EEF3;
+
+  /* Borders */
+  --border:        #D4E2EB;    /* Light sky blue */
+  --border-strong: #567C8D;    /* Teal */
+  --border-dark:   rgba(200, 217, 230, 0.14);  /* Sky blue tint on navy */
+
+  /* Gradients */
+  --gradient-hero:   linear-gradient(135deg, #2F4156 0%, #6D1020 100%);
+  --gradient-maroon: linear-gradient(135deg, #6D1020 0%, #9B1830 100%);
+  --gradient-card:   linear-gradient(160deg, #2F4156 0%, #1E2D3C 100%);
+
+  /* ─── TYPOGRAPHY ───────────────────────────────────────────── */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.25rem;
+  --text-5xl:  3rem;
+  --text-6xl:  3.75rem;
+  --text-7xl:  4.5rem;
+
+  --weight-light:     300;
+  --weight-regular:   400;
+  --weight-medium:    500;
+  --weight-semibold:  600;
+  --weight-bold:      700;
+  --weight-extrabold: 800;
+  --weight-black:     900;
+
+  --leading-tight:   1.15;
+  --leading-snug:    1.35;
+  --leading-normal:  1.6;
+  --leading-relaxed: 1.75;
+
+  /* ─── SPACING ──────────────────────────────────────────────── */
+  --sp-1:  0.25rem;
+  --sp-2:  0.5rem;
+  --sp-3:  0.75rem;
+  --sp-4:  1rem;
+  --sp-5:  1.25rem;
+  --sp-6:  1.5rem;
+  --sp-8:  2rem;
+  --sp-10: 2.5rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-20: 5rem;
+  --sp-24: 6rem;
+
+  /* ─── RADIUS ───────────────────────────────────────────────── */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-2xl:  32px;
+  --radius-full: 9999px;
+
+  /* ─── SHADOWS ──────────────────────────────────────────────── */
+  --shadow-xs: 0 1px 2px rgba(47, 65, 86, 0.06);
+  --shadow-sm: 0 1px 4px rgba(47, 65, 86, 0.10);
+  --shadow-md: 0 4px 16px rgba(47, 65, 86, 0.12);
+  --shadow-lg: 0 8px 32px rgba(47, 65, 86, 0.14);
+  --shadow-xl: 0 16px 48px rgba(47, 65, 86, 0.18);
+
+  /* ─── TRANSITIONS ──────────────────────────────────────────── */
+  --ease:          cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:      cubic-bezier(0, 0, 0.2, 1);
+  --duration:      200ms;
+  --duration-slow: 400ms;
+
+  /* ─── LAYOUT ───────────────────────────────────────────────── */
+  --container-max:  1440px;
+  --container-pad:  clamp(1.5rem, 4vw, 2.5rem);
+  --nav-height:     60px;   /* floating pill height */
+  --nav-bottom:     32px;   /* pill bottom offset */
+  --section-pad-y:  clamp(5rem, 10vw, 8rem);
+}

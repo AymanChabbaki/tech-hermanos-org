@@ -1,0 +1,21 @@
+.wrap {
+  position: fixed;
+  bottom: 70px;
+  right: 0;
+  width: 280px;
+  z-index: 90;
+  pointer-events: none;
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    width: 180px;
+    bottom: 80px;
+  }
+}

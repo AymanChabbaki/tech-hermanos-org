@@ -1,0 +1,247 @@
+/* ═══════════════════════════════════════════════════════
+   FLOATING BOTTOM NAV PILL
+   Fixed · bottom 10px · centered · border-radius 20px
+   ═══════════════════════════════════════════════════════ */
+
+.header {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+
+  /* Sizing: nearly full-width on mobile, capped on desktop */
+  width: calc(100% - 40px);
+  max-width: 900px;
+  height: 72px;
+
+  /* Beige off-white pill (default — on hero) */
+  background: #F5EFEB;
+  border: 1px solid #FFFFFF;
+  border-radius: 20px;
+  transition:
+    background var(--duration-slow) var(--ease),
+    box-shadow var(--duration-slow) var(--ease);
+
+  /* Floating shadow */
+  box-shadow:
+    0 10px 40px rgba(47, 65, 86, 0.14),
+    0 2px 8px rgba(47, 65, 86, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.60);
+}
+
+/* ── Navy state — active when scrolled past hero ─────────── */
+.dark {
+  background: #2F4156;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.22),
+    0 2px 8px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.dark .logo {
+  color: #FFFFFF;
+}
+
+.dark .sep {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+.dark .link {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.dark .link:hover {
+  color: #FFFFFF;
+}
+
+.dark .menuBtn span {
+  background-color: #FFFFFF;
+}
+
+/* ── Inner flex row ─────────────────────────────────────── */
+.nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-inline: var(--sp-8);
+  gap: var(--sp-6);
+}
+
+/* ── Logo ───────────────────────────────────────────────── */
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logoImg {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+
+/* ── Vertical separator ─────────────────────────────────── */
+.sep {
+  display: block;
+  width: 1px;
+  height: 26px;
+  background-color: var(--border);
+  flex-shrink: 0;
+}
+
+/* ── Desktop nav links ──────────────────────────────────── */
+.desktopLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-10);
+  flex: 1;
+}
+
+.link {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-secondary);
+  transition: color var(--duration) var(--ease);
+  white-space: nowrap;
+  position: relative;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: var(--gradient-maroon);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration) var(--ease);
+  border-radius: var(--radius-full);
+}
+
+.link:hover {
+  color: var(--text-primary);
+}
+
+.link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ── Desktop CTA ────────────────────────────────────────── */
+.desktopCta {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* ── Mobile hamburger ───────────────────────────────────── */
+.menuBtn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: var(--sp-2);
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menuBtn span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: transform var(--duration) var(--ease),
+    opacity var(--duration) var(--ease);
+}
+
+.menuOpen span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menuOpen span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.menuOpen span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE DRAWER — slides UP above the pill
+   ══════════════════════════════════════════════════════════ */
+.drawer {
+  position: fixed;
+  left: 10px;
+  right: 10px;
+  /* sits right above the pill: pill(60px) + bottom-offset(32px) + gap(10px) */
+  bottom: calc(60px + 32px + 10px);
+  max-height: calc(100svh - 60px - 10px - 24px);
+  overflow-y: auto;
+
+  background: rgba(18, 28, 40, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-6);
+  z-index: 99;
+
+  box-shadow: 0 -4px 40px rgba(0, 0, 0, 0.30), var(--shadow-xl);
+
+  /* Hidden state — slides down behind the pill */
+  transform: translateY(calc(100% + 90px));
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform var(--duration-slow) var(--ease),
+    opacity var(--duration) var(--ease);
+}
+
+.drawerOpen {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawerLinks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.drawerLink {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  color: rgba(255, 255, 255, 0.82);
+  letter-spacing: -0.01em;
+  padding-block: var(--sp-3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  transition: color var(--duration) var(--ease);
+}
+
+.drawerLink:last-of-type {
+  border-bottom: none;
+  margin-bottom: var(--sp-3);
+}
+
+.drawerLink:hover {
+  color: var(--accent);
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .desktopLinks,
+  .desktopCta,
+  .sep {
+    display: none;
+  }
+
+  .menuBtn {
+    display: flex;
+  }
+}

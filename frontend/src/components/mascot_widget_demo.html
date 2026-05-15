@@ -1,0 +1,270 @@
+
+<style>
+  #mascot-wrapper {
+    position: relative;
+    min-height: 340px;
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    background: var(--color-background-secondary);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 1.5rem;
+  }
+  #mascot-scene {
+    position: absolute;
+    bottom: 80px;
+    right: -160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: right 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  #mascot-scene.visible { right: 24px; }
+  #mascot-scene.hidden { right: -160px; }
+
+  #mascot-body {
+    width: 90px;
+    height: 90px;
+    background: #7F77DD;
+    border-radius: 50% 50% 45% 45%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .eye {
+    width: 14px; height: 14px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 28px;
+  }
+  .eye.left { left: 18px; }
+  .eye.right { right: 18px; }
+  .pupil {
+    width: 7px; height: 7px;
+    background: #26215C;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px; left: 3px;
+  }
+  .mouth {
+    position: absolute;
+    bottom: 22px;
+    width: 22px; height: 10px;
+    border-bottom: 3px solid white;
+    border-radius: 0 0 12px 12px;
+  }
+  #left-arm {
+    position: absolute;
+    left: -20px;
+    top: 30px;
+    width: 18px; height: 44px;
+    background: #7F77DD;
+    border-radius: 10px;
+    transform-origin: top center;
+    transform: rotate(-15deg);
+    transition: transform 0.3s ease;
+  }
+  #right-arm {
+    position: absolute;
+    right: -20px;
+    top: 30px;
+    width: 18px; height: 44px;
+    background: #7F77DD;
+    border-radius: 10px;
+    transform-origin: top center;
+    transform: rotate(15deg);
+    transition: transform 0.4s ease;
+  }
+  .legs {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+  }
+  .leg {
+    width: 18px; height: 28px;
+    background: #534AB7;
+    border-radius: 10px;
+  }
+
+  #speech-bubble {
+    background: white;
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: 12px 12px 4px 12px;
+    padding: 6px 10px;
+    font-size: 12px;
+    color: #3C3489;
+    font-weight: 500;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  #speech-bubble.show {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  #finger-pointer {
+    font-size: 22px;
+    margin-top: 4px;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(-10px);
+    color: #7F77DD;
+    user-select: none;
+  }
+  #finger-pointer.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #chat-btn {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    background: #7F77DD;
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: none;
+    transition: background 0.2s;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease, background 0.2s;
+  }
+  #chat-btn.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #chat-btn:hover { background: #534AB7; }
+
+  #preview-label {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  #restart-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    border: 0.5px solid var(--color-border-secondary);
+    border-radius: var(--border-radius-md);
+    padding: 4px 10px;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+  }
+  #restart-btn:hover { background: var(--color-background-primary); }
+
+  @keyframes wave {
+    0%   { transform: rotate(-15deg); }
+    25%  { transform: rotate(-60deg); }
+    50%  { transform: rotate(-15deg); }
+    75%  { transform: rotate(-60deg); }
+    100% { transform: rotate(-15deg); }
+  }
+  @keyframes pointDown {
+    0%   { transform: rotate(15deg); }
+    100% { transform: rotate(80deg); }
+  }
+  .waving { animation: wave 0.5s ease-in-out 4; }
+  .pointing { animation: pointDown 0.4s ease forwards; }
+</style>
+
+<div id="mascot-wrapper">
+  <span id="preview-label">live preview</span>
+  <button id="restart-btn" onclick="runSequence()">replay</button>
+
+  <div id="mascot-scene">
+    <div id="speech-bubble">👋 hey, need help?</div>
+    <div id="mascot-body">
+      <div class="eye left"><div class="pupil"></div></div>
+      <div class="eye right"><div class="pupil"></div></div>
+      <div class="mouth"></div>
+      <div id="left-arm"></div>
+      <div id="right-arm"></div>
+    </div>
+    <div class="legs">
+      <div class="leg"></div>
+      <div class="leg"></div>
+    </div>
+    <div id="finger-pointer">👇</div>
+  </div>
+
+  <button id="chat-btn">
+    <i class="ti ti-message-circle" aria-hidden="true"></i>
+    chat with us
+  </button>
+</div>
+
+<p style="font-size: 13px; color: var(--color-text-secondary); margin: 12px 0 0; padding: 0 4px;">
+  Replace the CSS mascot with your generated PNG — the animation logic stays exactly the same.
+</p>
+
+<script>
+const scene = document.getElementById('mascot-scene');
+const bubble = document.getElementById('speech-bubble');
+const leftArm = document.getElementById('left-arm');
+const rightArm = document.getElementById('right-arm');
+const finger = document.getElementById('finger-pointer');
+const chatBtn = document.getElementById('chat-btn');
+
+function runSequence() {
+  scene.className = 'hidden';
+  bubble.className = '';
+  leftArm.className = '';
+  rightArm.className = '';
+  finger.className = '';
+  chatBtn.className = '';
+
+  setTimeout(() => {
+    scene.className = 'visible';
+  }, 600);
+
+  setTimeout(() => {
+    bubble.className = 'show';
+    leftArm.classList.add('waving');
+  }, 1400);
+
+  setTimeout(() => {
+    leftArm.classList.remove('waving');
+  }, 3400);
+
+  setTimeout(() => {
+    bubble.className = '';
+    rightArm.classList.add('pointing');
+    finger.className = 'show';
+    chatBtn.className = 'show';
+  }, 3800);
+
+  setTimeout(() => {
+    scene.className = 'hidden';
+    finger.className = '';
+  }, 7500);
+
+  setTimeout(() => {
+    chatBtn.className = '';
+  }, 8200);
+}
+
+runSequence();
+</script>

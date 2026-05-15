@@ -1,0 +1,105 @@
+.section {
+  padding-block: var(--section-pad-y);
+  background: rgba(30, 45, 60, 0.93);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: var(--text-on-dark);
+}
+
+/* ── Two-column layout: sticky title + features grid ── */
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--sp-20);
+  align-items: start;
+}
+
+.titleCol {
+  position: sticky;
+  top: calc(var(--nav-height) + var(--sp-10));
+}
+
+
+.heading {
+  font-size: clamp(var(--text-2xl), 3vw, var(--text-4xl));
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+  letter-spacing: -0.025em;
+  color: var(--text-on-dark);
+}
+
+/* ── 2×2 feature grid ─────────────────────────────────── */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-8);
+}
+
+.featureCard {
+  background-color: var(--bg-dark-alt);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  transition: border-color var(--duration) var(--ease),
+    background-color var(--duration) var(--ease);
+}
+
+.featureCard:hover {
+  border-color: rgba(109, 16, 32, 0.35);
+  background-color: rgba(109, 16, 32, 0.06);
+}
+
+.iconWrap {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-2);
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+  transition: background-color var(--duration) var(--ease);
+}
+
+.featureCard:hover .iconWrap {
+  background-color: var(--accent);
+}
+
+.icon {
+  font-size: var(--text-xl);
+  color: #FFFFFF;
+}
+
+.featureTitle {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--text-on-dark);
+  letter-spacing: -0.01em;
+}
+
+.featureDesc {
+  font-size: var(--text-sm);
+  color: var(--text-muted-on-dark);
+  line-height: var(--leading-relaxed);
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--sp-10);
+  }
+
+  .titleCol {
+    position: static;
+  }
+}
+
+@media (max-width: 580px) {
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+}
