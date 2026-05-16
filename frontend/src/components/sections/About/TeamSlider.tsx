@@ -3,6 +3,7 @@ import styles from './TeamSlider.module.css'
 const teamImages = [
   { src: '/team/ayman_chabbaki1.jpeg', alt: 'Ayman Chabbaki' },
   { src: '/team/yahya_najm1.jpeg', alt: 'Yahya Najm' },
+  { src: '/team/badr_jamaaoui.jpg', alt: 'Badr eddine Jamaaoui' },
   { src: '/team/ayman_chabbaki2.jpeg', alt: 'Ayman Chabbaki' },
   { src: '/team/yahya_najm2.jpeg', alt: 'Yahya Najm' },
 ]
