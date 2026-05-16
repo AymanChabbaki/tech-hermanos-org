@@ -20,13 +20,18 @@ export default function Navbar() {
 
   useEffect(() => {
     const update = () => {
-      // The vertical center of the floating pill
-      // pill sits at bottom:32px, height:72px → center = innerHeight - 32 - 36
-      const navCenterY = window.innerHeight - 32 - 36
+      // Get current header dimensions to calculate center accurately
+      const headerEl = document.querySelector(`.${styles.header}`)
+      if (!headerEl) return
+
+      const headerRect = headerEl.getBoundingClientRect()
+      const navCenterY = headerRect.top + (headerRect.height / 2)
+      
       const sections = document.querySelectorAll<HTMLElement>('[data-nav-theme]')
 
       for (const section of sections) {
         const rect = section.getBoundingClientRect()
+        // If the center of the navbar is within the section bounds
         if (rect.top <= navCenterY && rect.bottom >= navCenterY) {
           setSectionBg(section.dataset.navTheme as 'light' | 'dark')
           return

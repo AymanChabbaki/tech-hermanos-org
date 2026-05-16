@@ -2,95 +2,139 @@ import styles from './Portfolio.module.css'
 import SectionLabel from '@/components/ui/SectionLabel'
 
 const projects = [
-  // ── Fashion / Clothing ──────────────────────────────────
   {
-    id: 'f1',
-    category: 'Fashion',
-    title: 'Streetwear Fashion Store',
-    description:
-      'Full e-commerce storefront for a streetwear brand featuring collection browsing, seasonal sales, and a bold editorial hero — built to convert browsers into buyers.',
-    tags: ['E-Commerce', 'UI/UX', 'Web Design'],
-    imageUrl: '/images/fashion/fashion-store.jpg',
+    id: 1,
+    title: "Gestion Pilotage",
+    description: "Système de gestion et de pilotage d'entreprise complet avec React, Node.js et MongoDB pour une gestion complète des opérations.",
+    image: "/projects/gestion_pilotage.png",
+    tags: ["React", "Node.js", "MongoDB"],
+    category: "Full Stack",
+    featured: true,
+    liveUrl: "#",
+    githubUrl: "https://github.com/AymanChabbaki/gestion_pilotage",
+    year: "2025"
   },
   {
-    id: 'f2',
-    category: 'Fashion',
-    title: 'Hoodie Brand Landing Page',
-    description:
-      'Minimal, high-impact landing page for a premium hoodie label — showcasing product photography, social links, and a swipe-to-discover shopping experience.',
-    tags: ['Landing Page', 'Fashion', 'Web Design'],
-    imageUrl: '/images/fashion/hoodie-store.jpg',
-  },
-
-  // ── SaaS / Dashboard ───────────────────────────────────
-  {
-    id: 's1',
-    category: 'SaaS',
-    title: 'eProduct Order Dashboard',
-    description:
-      'Clean admin panel for an e-commerce SaaS — real-time order tracking, dispatch status, and filterable tables that give operations teams full visibility at a glance.',
-    tags: ['SaaS', 'Dashboard', 'UI/UX'],
-    imageUrl: '/images/saas/order-dashboard.jpg',
+    id: 2,
+    title: "Football Prediction",
+    description: "Application de prédiction des scores de football avec IA utilisant Python, Flask et React pour des prédictions précises.",
+    image: "/projects/football.png",
+    tags: ["Python", "Flask", "React", "AI"],
+    category: "AI",
+    featured: true,
+    liveUrl: "#",
+    githubUrl: "https://github.com/AymanChabbaki/PredictionFootBalll",
+    year: "2025"
   },
   {
-    id: 's2',
-    category: 'SaaS',
-    title: 'TIXTA Task Manager',
-    description:
-      'Productivity SaaS landing page for a task management platform serving 9M+ users — bold hero, live stats, and clear CTAs designed to drive free-trial signups.',
-    tags: ['SaaS', 'Landing Page', 'Conversion'],
-    imageUrl: '/images/saas/task-manager.jpg',
+    id: 3,
+    title: "Car Price Prediction",
+    description: "Estimation du prix des véhicules avec machine learning développé en Python, Flask et React pour des prédictions précises.",
+    image: "/projects/car.png",
+    tags: ["Python", "Flask", "React", "Machine Learning"],
+    category: "AI",
+    featured: true,
+    liveUrl: "#",
+    githubUrl: "https://github.com/AymanChabbaki/PFM",
+    year: "2025"
   },
   {
-    id: 's3',
-    category: 'SaaS',
-    title: 'File Manager Platform',
-    description:
-      'Feature-rich cloud file manager UI with folder organisation, team collaboration, recent files, and tiered storage plans — designed for clarity under complex workflows.',
-    tags: ['SaaS', 'Dashboard', 'Product Design'],
-    imageUrl: '/images/saas/file-manager.jpg',
-  },
-
-  // ── Marketplace / Tech ─────────────────────────────────
-  {
-    id: 'm1',
-    category: 'Marketplace',
-    title: 'Gaming Gear Marketplace',
-    description:
-      'Multi-vendor marketplace for Fantech gaming peripherals — advanced category filters, star ratings, price range sliders, and a fast search experience for gear enthusiasts.',
-    tags: ['Marketplace', 'E-Commerce', 'Web Dev'],
-    imageUrl: '/images/marketplace/gaming-marketplace.jpg',
-  },
-
-  // ── Food & Restaurant ──────────────────────────────────
-  {
-    id: 'fd1',
-    category: 'Food & Restaurant',
-    title: 'HieuBowl Vietnamese Kitchen',
-    description:
-      'Vibrant restaurant website for a Vietnamese kitchen — full-page menu, calorie counting tool, customer reviews, and a warm visual identity that makes you hungry on sight.',
-    tags: ['Restaurant', 'Web Design', 'UI/UX'],
-    imageUrl: '/images/food/hieubowl.jpg',
+    id: 4,
+    title: "Gestion de Recrutement",
+    description: "Plateforme complète de gestion des processus de recrutement développée avec Laravel, React et MySQL.",
+    image: "/projects/rec.png",
+    tags: ["Laravel", "React", "MySQL"],
+    category: "Full Stack",
+    featured: false,
+    liveUrl: "#",
+    githubUrl: "https://github.com/AymanChabbaki/Gestion_Recrutement",
+    year: "2024"
   },
   {
-    id: 'fd2',
-    category: 'Food & Restaurant',
-    title: 'Organic Food Store',
-    description:
-      'Clean, nature-inspired e-commerce site for an organic grocery brand — product catalogue, category cards, and a fresh green palette that communicates health and trust.',
-    tags: ['E-Commerce', 'Food', 'Web Design'],
-    imageUrl: '/images/food/organic-store.jpg',
+    id: 5,
+    title: "AI Détection Panneaux",
+    description: "Système intelligent de détection des panneaux de signalisation utilisant l'intelligence artificielle et la vision par ordinateur.",
+    image: "/projects/detection.png",
+    tags: ["Python", "AI", "Computer Vision", "TensorFlow"],
+    category: "AI",
+    featured: true,
+    liveUrl: "#",
+    githubUrl: "https://github.com/AymanChabbaki/ai_detection_panneaux",
+    year: "2025"
   },
   {
-    id: 'fd3',
-    category: 'Food & Restaurant',
-    title: 'Vegan Restaurant Website',
-    description:
-      'Full multi-section website for a vegan eatery — hero with booking CTA, menu categories, nutritional values, and a "Why Choose Us" section that builds brand credibility.',
-    tags: ['Restaurant', 'Landing Page', 'Branding'],
-    imageUrl: '/images/food/vegan-restaurant.jpg',
+    id: 6,
+    title: "Career Manager Agent",
+    description: "Agent intelligent de gestion de carrière utilisant l'IA pour fournir des conseils personnalisés et guider les professionnels.",
+    image: "/projects/career_agent.png",
+    tags: ["Python", "AI", "Machine Learning", "NLP"],
+    category: "AI",
+    featured: true,
+    liveUrl: "#",
+    githubUrl: "https://github.com/AymanChabbaki/My_Career_Coach_agent",
+    year: "2025"
   },
-]
+  {
+    id: 7,
+    title: "SkillBridge Platform",
+    description: "Plateforme de freelancing similaire à Fiverr permettant aux freelancers de proposer leurs services et aux clients de trouver des talents.",
+    image: "/projects/skillBridge.png",
+    tags: ["React", "Node.js", "MongoDB", "Express"],
+    category: "Full Stack",
+    featured: true,
+    liveUrl: "#",
+    githubUrl: "https://github.com/AymanChabbaki/SkillBridge-Pro",
+    year: "2024"
+  },
+  {
+    id: 8,
+    title: "IQAMATI Platform",
+    description: "Plateforme complète de gestion immobilière pour syndics développée avec ReactJS et ExpressJS avec authentification avancée.",
+    image: "/projects/iqamati.png",
+    tags: ["React", "Express.js", "MongoDB", "Node.js"],
+    category: "Full Stack",
+    featured: true,
+    liveUrl: "#",
+    githubUrl: "https://github.com/AymanChabbaki/i9amati",
+    year: "2025"
+  },
+  {
+    id: 9,
+    title: "Chat Atlas App",
+    description: "Application de messagerie en temps réel développée avec Flutter, permettant une communication fluide via l'intégration Firebase.",
+    image: "/projects/atlas.png",
+    tags: ["Flutter", "Firebase", "Real-time", "Mobile"],
+    category: "Mobile",
+    featured: false,
+    liveUrl: "#",
+    githubUrl: "https://github.com/AymanChabbaki/atlaschat",
+    year: "2024"
+  },
+  {
+    id: 10,
+    title: "IPTV Spanish Website",
+    description: "Site web IPTV espagnol offrant une expérience de streaming fluide avec une interface utilisateur moderne et responsive.",
+    image: "/projects/iptv-spanish.jpg",
+    tags: ["React", "Node.js", "Streaming", "Spanish"],
+    category: "Web",
+    featured: false,
+    liveUrl: "#",
+    githubUrl: "https://github.com/AymanChabbaki/maxtv-frond",
+    year: "2024"
+  },
+  {
+    id: 11,
+    title: "Team Most Like Series",
+    description: "React app like Netflix for series, providing a streaming-like experience for TV shows.",
+    image: "/projects/series.png",
+    tags: ["React", "Netflix-like", "Series", "Streaming"],
+    category: "Web",
+    featured: true,
+    liveUrl: "#",
+    githubUrl: "https://github.com/AymanChabbaki/team-most-likes-series",
+    year: "2024"
+  }
+];
 
 export default function Portfolio() {
   return (
@@ -110,12 +154,20 @@ export default function Portfolio() {
           {projects.map((project) => (
             <div key={project.id} className={styles.card}>
               <div className={styles.cardImage}>
-                <img src={project.imageUrl} alt={project.title} />
+                <img src={project.image} alt={project.title} />
               </div>
 
               <div className={styles.cardBody}>
                 <span className={styles.cardCategory}>{project.category}</span>
-                <h3 className={styles.cardTitle}>{project.title}</h3>
+                <h3 className={styles.cardTitle}>
+                  {project.githubUrl !== '#' ? (
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className={styles.projectLink}>
+                      {project.title} ↗
+                    </a>
+                  ) : (
+                    project.title
+                  )}
+                </h3>
                 <p className={styles.cardDesc}>{project.description}</p>
                 <div className={styles.cardTags}>
                   {project.tags.map((tag) => (

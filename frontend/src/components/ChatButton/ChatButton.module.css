@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 59;
+  z-index: 110; /* Above everything including navbar */
   box-shadow: 0 4px 24px rgba(109, 16, 32, 0.45);
   cursor: pointer;
   border: none;
@@ -21,4 +21,14 @@
 .button:hover {
   transform: scale(1.12);
   box-shadow: 0 8px 32px rgba(109, 16, 32, 0.55);
+}
+
+/* Float above the nav pill on mobile */
+@media (max-width: 640px) {
+  .button {
+    bottom: 120px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+  }
 }
