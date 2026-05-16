@@ -32,8 +32,8 @@ export default function Footer() {
           <p className={styles.copy}>
             © {new Date().getFullYear()} Tech Hermanos. All rights reserved.
           </p>
-          <a href="mailto:hello@techhermanos.com" className={styles.email}>
-            hello@techhermanos.com
+          <a href="mailto:contact@techermanos.org" className={styles.email}>
+            contact@techermanos.org
           </a>
         </div>
       </div>

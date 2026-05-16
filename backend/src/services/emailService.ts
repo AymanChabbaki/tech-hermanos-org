@@ -84,8 +84,8 @@ export async function sendUserConfirmation(data: ContactPayload) {
           <td style="padding:24px 40px;border-top:1px solid #e8e0da;text-align:center;">
             <p style="margin:0;font-size:13px;color:#9aabbb;">
               © ${new Date().getFullYear()} Tech Hermanos ·
-              <a href="mailto:hello@techhermanos.com" style="color:#6D1020;text-decoration:none;">
-                hello@techhermanos.com
+              <a href="mailto:contact@techermanos.org" style="color:#6D1020;text-decoration:none;">
+                contact@techermanos.org
               </a>
             </p>
           </td>

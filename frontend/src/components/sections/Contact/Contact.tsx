@@ -46,8 +46,8 @@ export default function Contact() {
               results for you.
             </p>
             <div className={styles.details}>
-              <a href="mailto:hello@techhermanos.com" className={styles.detailLink}>
-                hello@techhermanos.com
+              <a href="mailto:contact@techermanos.org" className={styles.detailLink}>
+                contact@techermanos.org
               </a>
             </div>
           </div>
