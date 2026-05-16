@@ -1,5 +1,6 @@
 import styles from './About.module.css'
 import SectionLabel from '@/components/ui/SectionLabel'
+import TeamSlider from './TeamSlider'
 
 export default function About() {
   return (
@@ -26,13 +27,10 @@ export default function About() {
           </div>
         </div>
 
-        {/* ── Showcase: team image + highlight card ── */}
+        {/* ── Showcase: team slider + highlight card ── */}
         <div className={styles.showcase}>
-          {/* Replace the placeholder div with <img src="..." alt="..." /> */}
           <div className={styles.imageWrap}>
-            <div className={styles.imagePlaceholder}>
-              <span>Team Photo</span>
-            </div>
+            <TeamSlider />
           </div>
 
           <div className={styles.highlightCard}>
