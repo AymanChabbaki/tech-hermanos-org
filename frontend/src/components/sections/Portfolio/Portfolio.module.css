@@ -176,6 +176,27 @@
   }
 
   .grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: var(--sp-6);
+    padding-bottom: var(--sp-8);
+    padding-top: var(--sp-2); /* prevent shadow clipping */
+    margin-inline: calc(-1 * var(--container-pad));
+    padding-inline: var(--container-pad);
+    
+    /* Hide scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    flex: 0 0 85%;
+    max-width: 320px;
+    scroll-snap-align: start;
   }
 }
