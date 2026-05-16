@@ -3,6 +3,10 @@
     {
       "source": "/api/:path*",
       "destination": "https://tech-hermanos-org-back.vercel.app/api/:path*"
+    },
+    {
+      "source": "/((?!api|images|videos|projects|assets).*)",
+      "destination": "/index.html"
     }
   ]
 }
