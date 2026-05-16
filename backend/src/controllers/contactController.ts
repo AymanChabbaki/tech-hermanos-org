@@ -29,15 +29,16 @@ export async function submitContact(req: Request, res: Response, next: NextFunct
     console.log("Has SMTP_PASS:", !!process.env['SMTP_PASS'])
     console.log("========================")
 
-    Promise.all([
-      sendUserConfirmation(payload),
-      sendTeamNotification(payload),
-    ])
-      .then((info) => console.log('Emails sent successfully!', info))
-      .catch((err) => {
-        console.error('Detailed Email send error:', err)
-        if (err.response) console.error('SMTP Response:', err.response)
-      })
+    try {
+      const info = await Promise.all([
+        sendUserConfirmation(payload),
+        sendTeamNotification(payload),
+      ])
+      console.log('Emails sent successfully!', info)
+    } catch (err: any) {
+      console.error('Detailed Email send error:', err)
+      if (err.response) console.error('SMTP Response:', err.response)
+    }
 
     res.status(201).json({
       success: true,
